@@ -196,8 +196,8 @@ Once we receive the information, our team will review your case and advise you a
 For urgent or serious conditions, please seek immediate medical attention."""
 
                     elif user_states.get(sender) == "english_menu" and text == "2":
-                          user_states[sender] = "hygiene_care"
-                          reply = """Elderly / Patient Hygiene Care 🧼
+                        user_states[sender] = "hygiene_care"
+                        reply = """Elderly / Patient Hygiene Care 🧼
 
 Our care team provides hygiene assistance for elderly, bedridden and dependent patients at home.
 
@@ -218,8 +218,8 @@ To assist you, please provide:
 Once we receive the information, our team will review your care requirements and advise you accordingly."""
                     
                     elif user_states.get(sender) == "english_menu" and text == "3":
-                          user_states[sender] = "feeding_tube"
-                          reply = """Feeding Tube Insertion 🩺
+                        user_states[sender] = "feeding_tube"
+                        reply = """Feeding Tube Insertion 🩺
 
 To assist you, please provide:
 
@@ -237,8 +237,8 @@ To assist you, please provide:
 Our nursing team will review the request and advise you on availability."""
 
                     elif user_states.get(sender) == "english_menu" and text == "4":
-                          user_states[sender] = "urinary_catheter"
-                          reply = """Urinary Catheter Insertion / Replacement
+                        user_states[sender] = "urinary_catheter"
+                        reply = """Urinary Catheter Insertion / Replacement
 
 To assist you, please provide:
 
@@ -260,8 +260,8 @@ To assist you, please provide:
 Our nursing team will review the request and advise you on availability."""
 
                     elif user_states.get(sender) == "english_menu" and text == "5":
-                          user_states[sender] = "stoma_care"
-                          reply = """Stoma Care
+                        user_states[sender] = "stoma_care"
+                        reply = """Stoma Care
 
 To assist you, please provide:
 
@@ -278,8 +278,8 @@ To assist you, please provide:
 Our nursing team will review the information and advise you accordingly."""
 
                     elif user_states.get(sender) == "english_menu" and text == "6":
-                          user_states[sender] = "home_physiotherapy"
-                          reply = """Home Physiotherapy 🏠
+                        user_states[sender] = "home_physiotherapy"
+                        reply = """Home Physiotherapy 🏠
 
 To assist you, please provide:
 
@@ -302,8 +302,8 @@ To assist you, please provide:
 Our team will review the patient's requirements and advise you on physiotherapist availability."""
 
                     elif user_states.get(sender) == "english_menu" and text == "7":
-                          user_states[sender] = "medical_escort"
-                          reply = """Medical Escort Service – Medscort
+                        user_states[sender] = "medical_escort"
+                        reply = """Medical Escort Service – Medscort
 
 To assist you, please provide:
 
@@ -324,8 +324,8 @@ To assist you, please provide:
 Our Medscort team will check availability and contact you regarding the arrangement."""
 
                     elif user_states.get(sender) == "english_menu" and text == "8":
-                          user_states[sender] = "care_home"
-                          reply = """Care Home in Penang 🏡
+                        user_states[sender] = "care_home"
+                        reply = """Care Home in Penang 🏡
 
 To assist you, please provide:
 
@@ -352,8 +352,8 @@ To assist you, please provide:
 Our care team will review the patient's needs and recommend the most suitable care arrangement."""
 
                     elif text in {"1", "english"}:
-                          user_states[sender] = "english_menu"
-                          reply = """Welcome to Backliners 👩‍⚕️
+                        user_states[sender] = "english_menu"
+                        reply = """Welcome to Backliners 👩‍⚕️
     
 How may we assist you today?
 
@@ -369,8 +369,8 @@ How may we assist you today?
 Please reply with 1–8 to continue."""
                 
                     elif user_states.get(sender) == "chinese_menu" and text == "1":
-                           user_states[sender] = "wound_care_cn"
-                           reply = """伤口护理 / 换药 🩹
+                        user_states[sender] = "wound_care_cn"
+                        reply = """伤口护理 / 换药 🩹
 
 为了让我们的护士进一步了解病人的情况，请提供：
 
@@ -384,8 +384,8 @@ Please reply with 1–8 to continue."""
 如情况紧急或严重，请尽快寻求紧急医疗协助。"""
 
                     elif user_states.get(sender) == "chinese_menu" and text == "2":
-                          user_states[sender] = "hygiene_care_cn"
-                          reply = """长者 / 病人卫生护理 🧼
+                        user_states[sender] = "hygiene_care_cn"
+                        reply = """长者 / 病人卫生护理 🧼
 
 为了让我们进一步了解病人的护理需求，请提供：
 
@@ -404,8 +404,8 @@ Please reply with 1–8 to continue."""
 我们收到资料后，护理团队会进一步评估并与您联系。"""
 
                     elif user_states.get(sender) == "chinese_menu" and text == "3":
-                          user_states[sender] = "feeding_tube_cn"
-                          reply = """鼻胃喂食管置入 / 更换
+                        user_states[sender] = "feeding_tube_cn"
+                        reply = """鼻胃喂食管置入 / 更换
 
 请提供：
 
@@ -423,8 +423,8 @@ Please reply with 1–8 to continue."""
 我们的护士团队会查看您的需求并告知服务安排。"""
 
                     elif user_states.get(sender) == "chinese_menu" and text == "4":
-                          user_states[sender] = "urinary_catheter_cn"
-                          reply = """导尿管置入 / 更换
+                        user_states[sender] = "urinary_catheter_cn"
+                        reply = """导尿管置入 / 更换
 
 请提供：
 
@@ -446,8 +446,8 @@ Please reply with 1–8 to continue."""
 我们的护士团队会查看您的需求并告知服务安排。"""
 
                     elif user_states.get(sender) == "chinese_menu" and text == "5":
-                          user_states[sender] = "stoma_care_cn"
-                          reply = """造口护理
+                        user_states[sender] = "stoma_care_cn"
+                        reply = """造口护理
 
 请提供：
 
@@ -464,8 +464,8 @@ Please reply with 1–8 to continue."""
 我们的护士团队会进一步了解情况并与您联系。"""
 
                     elif user_states.get(sender) == "chinese_menu" and text == "6":
-                          user_states[sender] = "home_physiotherapy_cn"
-                          reply = """上门物理治疗 🏠
+                        user_states[sender] = "home_physiotherapy_cn"
+                        reply = """上门物理治疗 🏠
 
 请提供：
 
@@ -488,8 +488,8 @@ Please reply with 1–8 to continue."""
 我们的团队会查看病人的需求，并与您确认物理治疗师的时间安排。"""
 
                     elif user_states.get(sender) == "chinese_menu" and text == "7":
-                          user_states[sender] = "medical_escort_cn"
-                          reply = """医疗陪诊服务 – Medscort
+                        user_states[sender] = "medical_escort_cn"
+                        reply = """医疗陪诊服务 – Medscort
 
 请提供：
 
@@ -510,8 +510,8 @@ Please reply with 1–8 to continue."""
 Medscort 团队会查看时间安排并与您联系。"""
 
                     elif user_states.get(sender) == "chinese_menu" and text == "8":
-                          user_states[sender] = "care_home_cn"
-                          reply = """槟城安老护理中心 🏡
+                        user_states[sender] = "care_home_cn"
+                        reply = """槟城安老护理中心 🏡
 
 请提供：
 
@@ -538,8 +538,8 @@ Medscort 团队会查看时间安排并与您联系。"""
 我们的护理团队会进一步了解长者的情况，并建议合适的护理安排。"""
                     
                     elif text in {"2", "中文", "chinese"}:
-                          user_states[sender] = "chinese_menu"
-                          reply = """欢迎联系 Backliners 👩‍⚕️
+                        user_states[sender] = "chinese_menu"
+                        reply = """欢迎联系 Backliners 👩‍⚕️
 
 请问您需要哪一项服务？
 
@@ -555,7 +555,8 @@ Medscort 团队会查看时间安排并与您联系。"""
 请输入 1–8 继续。"""
                         
                     elif text in {"3", "bm", "bahasa", "bahasa malaysia"}:
-                          reply = """Selamat datang ke Backliners 👩‍⚕️
+                        user_states[sender] = "bm_menu"
+                        reply = """Selamat datang ke Backliners 👩‍⚕️
 
 Bagaimanakah kami boleh membantu anda?
 
@@ -569,11 +570,11 @@ Bagaimanakah kami boleh membantu anda?
 8️⃣ Pusat Jagaan Warga Emas di Pulau Pinang
 
 Sila balas 1–8 untuk meneruskan."""
-                else:
-                    reply = WELCOME_MESSAGE
+                    else:
+                        reply = WELCOME_MESSAGE
                     
-                app.logger.info("REPLYING to=%s reply=%s", sender, reply[:80])
-                send_whatsapp_message(sender, reply)
+                    app.logger.info("REPLYING to=%s reply=%s", sender, reply[:80])
+                    send_whatsapp_message(sender, reply)
 
     except Exception:
         app.logger.exception("Error processing webhook")
