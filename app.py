@@ -364,8 +364,179 @@ How may we assist you today?
 8️⃣ Care Home in Penang
 
 Please reply with 1–8 to continue."""
+                
+                elif user_states.get(sender) == "chinese_menu" and text == "1":
+                    user_states[sender] = "wound_care_cn"
+                    reply = """伤口护理 / 换药 🩹
+
+为了让我们的护士进一步了解病人的情况，请提供：
+
+1. 病人所在地区
+2. 伤口类型（如果知道）
+3. 伤口出现多久了
+4. 请发送一张清晰的伤口照片
+
+我们收到资料后，护理团队会进一步评估并与您联系。
+
+如情况紧急或严重，请尽快寻求紧急医疗协助。"""
+
+                elif user_states.get(sender) == "chinese_menu" and text == "2":
+                    user_states[sender] = "hygiene_care_cn"
+                    reply = """长者 / 病人卫生护理 🧼
+
+为了让我们进一步了解病人的护理需求，请提供：
+
+1. 病人所在地区
+2. 病人年龄
+3. 病人的行动能力
+   - 可自行行走
+   - 使用轮椅
+   - 长期卧床
+4. 需要哪方面的协助
+   - 洗澡 / 擦身
+   - 更换尿片
+   - 个人卫生 / 清洁
+   - 以上多项服务
+
+我们收到资料后，护理团队会进一步评估并与您联系。"""
+
+                elif user_states.get(sender) == "chinese_menu" and text == "3":
+                    user_states[sender] = "feeding_tube_cn"
+                    reply = """鼻胃喂食管置入 / 更换
+
+请提供：
+
+1. 病人所在地区
+2. 所需服务
+   - 首次置入喂食管
+   - 更换现有喂食管
+   - 喂食管意外脱落
+3. 病人目前是否在家？
+4. 什么时候需要服务？
+   - 今天
+   - 明天
+   - 其他日期
+
+我们的护士团队会查看您的需求并告知服务安排。"""
+
+                elif user_states.get(sender) == "chinese_menu" and text == "4":
+                    user_states[sender] = "urinary_catheter_cn"
+                    reply = """导尿管置入 / 更换
+
+请提供：
+
+1. 病人所在地区
+2. 所需服务
+   - 首次置入导尿管
+   - 更换导尿管
+   - 移除导尿管
+   - 导尿管阻塞 / 出现问题
+   - 不确定
+3. 病人性别
+   - 男
+   - 女
+4. 什么时候需要服务？
+   - 今天
+   - 明天
+   - 其他日期
+
+我们的护士团队会查看您的需求并告知服务安排。"""
+
+                elif user_states.get(sender) == "chinese_menu" and text == "5":
+                    user_states[sender] = "stoma_care_cn"
+                    reply = """造口护理
+
+请提供：
+
+1. 病人所在地区
+2. 所需协助
+   - 更换造口袋
+   - 造口清洁 / 周围皮肤护理
+   - 造口护理指导
+   - 造口袋渗漏 / 护理困难
+   - 不确定
+3. 是否属于新造口？
+4. 希望护士什么时候上门？
+
+我们的护士团队会进一步了解情况并与您联系。"""
+
+                elif user_states.get(sender) == "chinese_menu" and text == "6":
+                    user_states[sender] = "home_physiotherapy_cn"
+                    reply = """上门物理治疗 🏠
+
+请提供：
+
+1. 病人所在地区
+2. 病人年龄
+3. 需要物理治疗的主要原因
+   - 中风康复
+   - 手术后康复
+   - 长者肌力 / 活动能力训练
+   - 行走困难
+   - 跌倒后康复
+   - 其他
+4. 病人目前的行动能力
+   - 长期卧床
+   - 使用轮椅
+   - 需要协助行走
+   - 可自行行走
+5. 希望什么时候进行第一次治疗？
+
+我们的团队会查看病人的需求，并与您确认物理治疗师的时间安排。"""
+
+                elif user_states.get(sender) == "chinese_menu" and text == "7":
+                    user_states[sender] = "medical_escort_cn"
+                    reply = """医疗陪诊服务 – Medscort
+
+请提供：
+
+1. 接送地点
+2. 前往哪一家医院 / 诊所
+3. 预约日期
+4. 预约时间
+5. 病人的行动能力
+   - 可自行行走
+   - 需要协助行走
+   - 使用轮椅
+   - 卧床
+6. 所需服务
+   - 陪诊服务
+   - 陪诊 + 交通接送
+   - 不确定
+
+Medscort 团队会查看时间安排并与您联系。"""
+
+                elif user_states.get(sender) == "chinese_menu" and text == "8":
+                    user_states[sender] = "care_home_cn"
+                    reply = """槟城安老护理中心 🏡
+
+请提供：
+
+1. 长者 / 病人的年龄
+2. 目前身体状况
+   - 可独立生活
+   - 日常生活需要协助
+   - 使用轮椅
+   - 长期卧床
+   - 失智症 / 认知障碍
+   - 出院后康复
+3. 是否需要专业护理？
+4. 预计入住多久？
+   - 短期入住
+   - 1–3个月
+   - 长期入住
+   - 暂不确定
+5. 预计什么时候入住？
+   - 立即
+   - 一星期内
+   - 一个月内
+   - 目前只是咨询
+
+我们的护理团队会进一步了解长者的情况，并建议合适的护理安排。"""
+                    
                 elif text in {"2", "中文", "chinese"}:
-                        reply = """欢迎联系 Backliners 👩‍⚕️
+                    user_states[sender] = "chinese_menu"
+                    reply = """欢迎联系 Backliners 👩‍⚕️
 
 请问您需要哪一项服务？
 
