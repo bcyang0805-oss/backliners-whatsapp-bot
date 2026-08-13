@@ -192,6 +192,28 @@ Once we receive the information, our team will review your case and advise you a
 
 For urgent or serious conditions, please seek immediate medical attention."""
 
+                elif user_states.get(sender) == "english_menu" and text == "2":
+                    user_states[sender] = "hygiene_care"
+                    reply = """Elderly / Patient Hygiene Care 🧼
+
+Our care team provides hygiene assistance for elderly, bedridden and dependent patients at home.
+
+To assist you, please provide:
+
+1. Patient's location / area
+2. Patient's age
+3. Patient's current mobility
+   - Walking
+   - Wheelchair
+   - Bedridden
+4. Type of assistance required
+   - Bathing / sponging
+   - Diaper changing
+   - Grooming / hygiene
+   - Combination of the above
+
+Once we receive the information, our team will review your care requirements and advise you accordingly."""
+
                 elif text in {"1", "english"}:
                     user_states[sender] = "english_menu"
                     reply = """Welcome to Backliners 👩‍⚕️
