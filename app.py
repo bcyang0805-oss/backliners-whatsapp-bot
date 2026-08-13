@@ -232,9 +232,9 @@ Bagaimanakah kami boleh membantu anda?
 
 Sila balas 1–8 untuk meneruskan."""
                 else:
-                        reply = WELCOME_MESSAGE
+                    reply = WELCOME_MESSAGE
 
-                    send_whatsapp_message(sender, reply)
+                send_whatsapp_message(sender, reply)
 
     except Exception:
         app.logger.exception("Error processing webhook")
