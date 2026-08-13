@@ -365,7 +365,7 @@ How may we assist you today?
 
 Please reply with 1–8 to continue."""
                 
-                     elif user_states.get(sender) == "chinese_menu" and text == "1":
+                    elif user_states.get(sender) == "chinese_menu" and text == "1":
                            user_states[sender] = "wound_care_cn"
                            reply = """伤口护理 / 换药 🩹
 
