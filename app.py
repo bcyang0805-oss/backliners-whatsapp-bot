@@ -167,6 +167,12 @@ def receive_webhook():
 
                     if not sender:
                         continue
+                    app.logger.info(
+                        "INCOMING sender=%s state=%s text=%s",
+                        sender,
+                        user_states.get(sender),
+                        text
+                        )
 
                 if user_states.get(sender) == "english_menu" and text == "1":
                     user_states[sender] = "wound_care"
@@ -233,7 +239,7 @@ Bagaimanakah kami boleh membantu anda?
 Sila balas 1–8 untuk meneruskan."""
                 else:
                     reply = WELCOME_MESSAGE
-
+                app.logger.info("REPLYING to=%s reply=%s", sender, reply[:80])
                 send_whatsapp_message(sender, reply)
 
     except Exception:
