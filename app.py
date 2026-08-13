@@ -231,7 +231,7 @@ Bagaimanakah kami boleh membantu anda?
 8️⃣ Pusat Jagaan Warga Emas di Pulau Pinang
 
 Sila balas 1–8 untuk meneruskan."""
-                    else:
+                else:
                         reply = WELCOME_MESSAGE
 
                     send_whatsapp_message(sender, reply)
