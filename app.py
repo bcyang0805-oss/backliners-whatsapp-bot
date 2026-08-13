@@ -30,8 +30,15 @@ def send_whatsapp_message(to_number: str, message: str):
         "text": {"body": message},
     }
 
-    response = requests.post(url, headers=headers, json=payload, timeout=20)
-    app.logger.info("Meta response: %s %s", response.status_code, response.text)
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=20)
+        app.logger.warning(
+            "META SEND RESPONSE: status=%s body=%s",
+            response.status_code,
+            response.text,
+        )
+    except Exception:
+        app.logger.exception("META SEND FAILED")
 
 
 WELCOME_MESSAGE = """Welcome to Backliners 👩‍⚕️
@@ -181,6 +188,30 @@ def receive_webhook():
                     if text in {"hi", "hello", "hey", "start", "menu"}:
                         user_states[sender] = None
                         reply = WELCOME_MESSAGE
+
+                    elif user_states.get(sender) == "chinese_menu" and text in {"6", "６"}:
+                        user_states[sender] = "home_physiotherapy_cn"
+                        reply = """上门物理治疗 🏠
+
+请提供：
+
+1. 病人所在地区
+2. 病人年龄
+3. 需要物理治疗的主要原因
+   - 中风康复
+   - 手术后康复
+   - 长者肌力 / 活动能力训练
+   - 行走困难
+   - 跌倒后康复
+   - 其他
+4. 病人目前的行动能力
+   - 长期卧床
+   - 使用轮椅
+   - 需要协助行走
+   - 可自行行走
+5. 希望什么时候进行第一次治疗？
+
+我们的团队会查看病人的需求，并与您确认物理治疗师的时间安排。"""
 
                     elif user_states.get(sender) == "english_menu" and text == "1":
                         user_states[sender] = "wound_care"
@@ -586,6 +617,11 @@ Sila balas 1–8 untuk meneruskan."""
 
     # Meta expects a fast 200 response.
     return "EVENT_RECEIVED", 200
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", "10000"))
+    app.run(host="0.0.0.0", port=port)
 
 
 if __name__ == "__main__":
