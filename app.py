@@ -178,7 +178,11 @@ def receive_webhook():
                         text
                         )
 
-                    if user_states.get(sender) == "english_menu" and text == "1":
+                    if text in {"hi", "hello", "hey", "start", "menu"}:
+                        user_states[sender] = None
+                        reply = WELCOME_MESSAGE
+
+                    elif user_states.get(sender) == "english_menu" and text == "1":
                         user_states[sender] = "wound_care"
                         reply = """Wound Care 🩹
 
@@ -351,23 +355,6 @@ To assist you, please provide:
 
 Our care team will review the patient's needs and recommend the most suitable care arrangement."""
 
-                    elif text in {"1", "english"}:
-                        user_states[sender] = "english_menu"
-                        reply = """Welcome to Backliners 👩‍⚕️
-    
-How may we assist you today?
-
-1️⃣ Wound Care
-2️⃣ Elderly / Patient Hygiene Care
-3️⃣ Feeding Tube Insertion
-4️⃣ Urinary Catheter Insertion
-5️⃣ Stoma Care
-6️⃣ Home Physiotherapy
-7️⃣ Medical Escort Service
-8️⃣ Care Home in Penang
-
-Please reply with 1–8 to continue."""
-                
                     elif user_states.get(sender) == "chinese_menu" and text == "1":
                         user_states[sender] = "wound_care_cn"
                         reply = """伤口护理 / 换药 🩹
@@ -537,6 +524,24 @@ Medscort 团队会查看时间安排并与您联系。"""
 
 我们的护理团队会进一步了解长者的情况，并建议合适的护理安排。"""
                     
+                    elif text in {"1", "english"}:
+                        user_states[sender] = "english_menu"
+                        reply = """Welcome to Backliners 👩‍⚕️
+    
+How may we assist you today?
+
+1️⃣ Wound Care
+2️⃣ Elderly / Patient Hygiene Care
+3️⃣ Feeding Tube Insertion
+4️⃣ Urinary Catheter Insertion
+5️⃣ Stoma Care
+6️⃣ Home Physiotherapy
+7️⃣ Medical Escort Service
+8️⃣ Care Home in Penang
+
+Please reply with 1–8 to continue."""
+                
+
                     elif text in {"2", "中文", "chinese"}:
                         user_states[sender] = "chinese_menu"
                         reply = """欢迎联系 Backliners 👩‍⚕️
