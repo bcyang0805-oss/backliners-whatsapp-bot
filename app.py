@@ -187,6 +187,7 @@ For urgent or serious conditions, please seek immediate medical attention."""
 
                 elif text in {"1", "english"}:
                     user_states[sender] = "english_menu"
+                    reply = """Welcome to Backliners 👩‍⚕️
     
 How may we assist you today?
 
