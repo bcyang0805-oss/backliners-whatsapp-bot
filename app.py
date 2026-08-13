@@ -8,7 +8,7 @@ VERIFY_TOKEN = os.environ.get("VERIFY_TOKEN", "")
 WHATSAPP_TOKEN = os.environ.get("WHATSAPP_TOKEN", "")
 PHONE_NUMBER_ID = os.environ.get("PHONE_NUMBER_ID", "")
 
-GRAPH_API_VERSION = "v25.0"
+GRAPH_API_VERSION = "v26.0"
 
 
 def send_whatsapp_message(to_number: str, message: str):
