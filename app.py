@@ -216,8 +216,8 @@ Please reply with 1–8 to continue."""
 8️⃣ 槟城安老护理中心
 
 请输入 1–8 继续。"""
-                    elif text in {"3", "bm", "bahasa", "bahasa malaysia"}:
-                        reply = """Selamat datang ke Backliners 👩‍⚕️
+                elif text in {"3", "bm", "bahasa", "bahasa malaysia"}:
+                    reply = """Selamat datang ke Backliners 👩‍⚕️
 
 Bagaimanakah kami boleh membantu anda?
 
