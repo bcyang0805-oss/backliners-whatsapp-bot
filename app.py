@@ -192,9 +192,9 @@ Once we receive the information, our team will review your case and advise you a
 
 For urgent or serious conditions, please seek immediate medical attention."""
 
-                elif user_states.get(sender) == "english_menu" and text == "2":
-                    user_states[sender] = "hygiene_care"
-                    reply = """Elderly / Patient Hygiene Care 🧼
+                    elif user_states.get(sender) == "english_menu" and text == "2":
+                          user_states[sender] = "hygiene_care"
+                          reply = """Elderly / Patient Hygiene Care 🧼
 
 Our care team provides hygiene assistance for elderly, bedridden and dependent patients at home.
 
@@ -214,9 +214,9 @@ To assist you, please provide:
 
 Once we receive the information, our team will review your care requirements and advise you accordingly."""
                     
-                elif user_states.get(sender) == "english_menu" and text == "3":
-                    user_states[sender] = "feeding_tube"
-                    reply = """Feeding Tube Insertion 🩺
+                    elif user_states.get(sender) == "english_menu" and text == "3":
+                          user_states[sender] = "feeding_tube"
+                          reply = """Feeding Tube Insertion 🩺
 
 To assist you, please provide:
 
@@ -233,9 +233,9 @@ To assist you, please provide:
 
 Our nursing team will review the request and advise you on availability."""
 
-                elif user_states.get(sender) == "english_menu" and text == "4":
-                    user_states[sender] = "urinary_catheter"
-                    reply = """Urinary Catheter Insertion / Replacement
+                    elif user_states.get(sender) == "english_menu" and text == "4":
+                          user_states[sender] = "urinary_catheter"
+                          reply = """Urinary Catheter Insertion / Replacement
 
 To assist you, please provide:
 
@@ -256,9 +256,9 @@ To assist you, please provide:
 
 Our nursing team will review the request and advise you on availability."""
 
-                elif user_states.get(sender) == "english_menu" and text == "5":
-                    user_states[sender] = "stoma_care"
-                    reply = """Stoma Care
+                    elif user_states.get(sender) == "english_menu" and text == "5":
+                          user_states[sender] = "stoma_care"
+                          reply = """Stoma Care
 
 To assist you, please provide:
 
@@ -274,9 +274,9 @@ To assist you, please provide:
 
 Our nursing team will review the information and advise you accordingly."""
 
-                elif user_states.get(sender) == "english_menu" and text == "6":
-                    user_states[sender] = "home_physiotherapy"
-                    reply = """Home Physiotherapy 🏠
+                    elif user_states.get(sender) == "english_menu" and text == "6":
+                          user_states[sender] = "home_physiotherapy"
+                          reply = """Home Physiotherapy 🏠
 
 To assist you, please provide:
 
@@ -298,9 +298,9 @@ To assist you, please provide:
 
 Our team will review the patient's requirements and advise you on physiotherapist availability."""
 
-                elif user_states.get(sender) == "english_menu" and text == "7":
-                    user_states[sender] = "medical_escort"
-                    reply = """Medical Escort Service – Medscort
+                    elif user_states.get(sender) == "english_menu" and text == "7":
+                          user_states[sender] = "medical_escort"
+                          reply = """Medical Escort Service – Medscort
 
 To assist you, please provide:
 
@@ -320,9 +320,9 @@ To assist you, please provide:
 
 Our Medscort team will check availability and contact you regarding the arrangement."""
 
-                elif user_states.get(sender) == "english_menu" and text == "8":
-                    user_states[sender] = "care_home"
-                    reply = """Care Home in Penang 🏡
+                    elif user_states.get(sender) == "english_menu" and text == "8":
+                          user_states[sender] = "care_home"
+                          reply = """Care Home in Penang 🏡
 
 To assist you, please provide:
 
@@ -348,9 +348,9 @@ To assist you, please provide:
 
 Our care team will review the patient's needs and recommend the most suitable care arrangement."""
 
-                elif text in {"1", "english"}:
-                    user_states[sender] = "english_menu"
-                    reply = """Welcome to Backliners 👩‍⚕️
+                    elif text in {"1", "english"}:
+                          user_states[sender] = "english_menu"
+                          reply = """Welcome to Backliners 👩‍⚕️
     
 How may we assist you today?
 
