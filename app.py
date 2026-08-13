@@ -10,7 +10,8 @@ PHONE_NUMBER_ID = os.environ.get("PHONE_NUMBER_ID", "")
 
 GRAPH_API_VERSION = "v26.0"
 
-
+# Remember where each customer is in the conversation
+user_states = {}
 def send_whatsapp_message(to_number: str, message: str):
     """Send a WhatsApp text message using Meta Cloud API."""
     if not WHATSAPP_TOKEN or not PHONE_NUMBER_ID:
@@ -167,8 +168,27 @@ def receive_webhook():
                     if not sender:
                         continue
 
-                    if text in {"1", "english"}:
-                        reply = """Welcome to Backliners 👩‍⚕️
+if user_states.get(sender) == "english_menu" and text == "1":
+    user_states[sender] = "wound_care"
+    reply = """Wound Care 🩹
+
+Our registered nurses provide professional wound assessment and dressing services at your home.
+
+To assist you, please provide:
+
+1. Patient's location / area
+2. Type of wound (if known)
+3. How long the wound has been present
+4. A clear photo of the wound
+
+Once we receive the information, our team will review your case and advise you accordingly.
+
+For urgent or serious conditions, please seek immediate medical attention."""
+
+elif text in {"1", "english"}:
+    user_states[sender] = "english_menu"
+    reply = """Welcome to Backliners 👩‍⚕️
+    
 How may we assist you today?
 
 1️⃣ Wound Care
