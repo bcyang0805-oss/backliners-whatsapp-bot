@@ -144,7 +144,7 @@ def verify_webhook():
 @app.post("/webhook")
 def receive_webhook():
     data = request.get_json(silent=True) or {}
-    app.logger.info("WEBHOOK DATA: %s", data)
+    app.logger.warning("WEBHOOK DATA: %s", data)
 
     try:
         entries = data.get("entry", [])
