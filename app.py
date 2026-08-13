@@ -365,9 +365,9 @@ How may we assist you today?
 
 Please reply with 1–8 to continue."""
                 
-                elif user_states.get(sender) == "chinese_menu" and text == "1":
-                    user_states[sender] = "wound_care_cn"
-                    reply = """伤口护理 / 换药 🩹
+                     elif user_states.get(sender) == "chinese_menu" and text == "1":
+                           user_states[sender] = "wound_care_cn"
+                           reply = """伤口护理 / 换药 🩹
 
 为了让我们的护士进一步了解病人的情况，请提供：
 
@@ -380,9 +380,9 @@ Please reply with 1–8 to continue."""
 
 如情况紧急或严重，请尽快寻求紧急医疗协助。"""
 
-                elif user_states.get(sender) == "chinese_menu" and text == "2":
-                    user_states[sender] = "hygiene_care_cn"
-                    reply = """长者 / 病人卫生护理 🧼
+                    elif user_states.get(sender) == "chinese_menu" and text == "2":
+                          user_states[sender] = "hygiene_care_cn"
+                          reply = """长者 / 病人卫生护理 🧼
 
 为了让我们进一步了解病人的护理需求，请提供：
 
@@ -400,9 +400,9 @@ Please reply with 1–8 to continue."""
 
 我们收到资料后，护理团队会进一步评估并与您联系。"""
 
-                elif user_states.get(sender) == "chinese_menu" and text == "3":
-                    user_states[sender] = "feeding_tube_cn"
-                    reply = """鼻胃喂食管置入 / 更换
+                    elif user_states.get(sender) == "chinese_menu" and text == "3":
+                          user_states[sender] = "feeding_tube_cn"
+                          reply = """鼻胃喂食管置入 / 更换
 
 请提供：
 
@@ -419,9 +419,9 @@ Please reply with 1–8 to continue."""
 
 我们的护士团队会查看您的需求并告知服务安排。"""
 
-                elif user_states.get(sender) == "chinese_menu" and text == "4":
-                    user_states[sender] = "urinary_catheter_cn"
-                    reply = """导尿管置入 / 更换
+                    elif user_states.get(sender) == "chinese_menu" and text == "4":
+                          user_states[sender] = "urinary_catheter_cn"
+                          reply = """导尿管置入 / 更换
 
 请提供：
 
@@ -442,9 +442,9 @@ Please reply with 1–8 to continue."""
 
 我们的护士团队会查看您的需求并告知服务安排。"""
 
-                elif user_states.get(sender) == "chinese_menu" and text == "5":
-                    user_states[sender] = "stoma_care_cn"
-                    reply = """造口护理
+                    elif user_states.get(sender) == "chinese_menu" and text == "5":
+                          user_states[sender] = "stoma_care_cn"
+                          reply = """造口护理
 
 请提供：
 
@@ -460,9 +460,9 @@ Please reply with 1–8 to continue."""
 
 我们的护士团队会进一步了解情况并与您联系。"""
 
-                elif user_states.get(sender) == "chinese_menu" and text == "6":
-                    user_states[sender] = "home_physiotherapy_cn"
-                    reply = """上门物理治疗 🏠
+                    elif user_states.get(sender) == "chinese_menu" and text == "6":
+                          user_states[sender] = "home_physiotherapy_cn"
+                          reply = """上门物理治疗 🏠
 
 请提供：
 
@@ -484,9 +484,9 @@ Please reply with 1–8 to continue."""
 
 我们的团队会查看病人的需求，并与您确认物理治疗师的时间安排。"""
 
-                elif user_states.get(sender) == "chinese_menu" and text == "7":
-                    user_states[sender] = "medical_escort_cn"
-                    reply = """医疗陪诊服务 – Medscort
+                    elif user_states.get(sender) == "chinese_menu" and text == "7":
+                          user_states[sender] = "medical_escort_cn"
+                          reply = """医疗陪诊服务 – Medscort
 
 请提供：
 
@@ -506,9 +506,9 @@ Please reply with 1–8 to continue."""
 
 Medscort 团队会查看时间安排并与您联系。"""
 
-                elif user_states.get(sender) == "chinese_menu" and text == "8":
-                    user_states[sender] = "care_home_cn"
-                    reply = """槟城安老护理中心 🏡
+                    elif user_states.get(sender) == "chinese_menu" and text == "8":
+                          user_states[sender] = "care_home_cn"
+                          reply = """槟城安老护理中心 🏡
 
 请提供：
 
@@ -534,9 +534,9 @@ Medscort 团队会查看时间安排并与您联系。"""
 
 我们的护理团队会进一步了解长者的情况，并建议合适的护理安排。"""
                     
-                elif text in {"2", "中文", "chinese"}:
-                    user_states[sender] = "chinese_menu"
-                    reply = """欢迎联系 Backliners 👩‍⚕️
+                    elif text in {"2", "中文", "chinese"}:
+                          user_states[sender] = "chinese_menu"
+                          reply = """欢迎联系 Backliners 👩‍⚕️
 
 请问您需要哪一项服务？
 
@@ -550,8 +550,9 @@ Medscort 团队会查看时间安排并与您联系。"""
 8️⃣ 槟城安老护理中心
 
 请输入 1–8 继续。"""
-                elif text in {"3", "bm", "bahasa", "bahasa malaysia"}:
-                    reply = """Selamat datang ke Backliners 👩‍⚕️
+                        
+                    elif text in {"3", "bm", "bahasa", "bahasa malaysia"}:
+                          reply = """Selamat datang ke Backliners 👩‍⚕️
 
 Bagaimanakah kami boleh membantu anda?
 
