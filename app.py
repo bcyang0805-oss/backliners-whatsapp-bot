@@ -153,6 +153,9 @@ def receive_webhook():
             for change in changes:
                 value = change.get("value", {})
                 messages = value.get("messages", [])
+                
+                if not messages:
+                    continue
 
                 for message in messages:
                     if message.get("type") != "text":
