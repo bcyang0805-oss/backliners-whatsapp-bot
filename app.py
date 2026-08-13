@@ -201,7 +201,7 @@ How may we assist you today?
 8️⃣ Care Home in Penang
 
 Please reply with 1–8 to continue."""
-                    elif text in {"2", "中文", "chinese"}:
+                elif text in {"2", "中文", "chinese"}:
                         reply = """欢迎联系 Backliners 👩‍⚕️
 
 请问您需要哪一项服务？
