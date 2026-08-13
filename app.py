@@ -213,6 +213,140 @@ To assist you, please provide:
    - Combination of the above
 
 Once we receive the information, our team will review your care requirements and advise you accordingly."""
+                    
+                elif user_states.get(sender) == "english_menu" and text == "3":
+                    user_states[sender] = "feeding_tube"
+                    reply = """Feeding Tube Insertion 🩺
+
+To assist you, please provide:
+
+1. Patient's location / area
+2. Service required
+   - New feeding tube insertion
+   - Replacement of existing feeding tube
+   - Feeding tube accidentally came out
+3. Is the patient currently at home?
+4. When is the service required?
+   - Today
+   - Tomorrow
+   - Other date
+
+Our nursing team will review the request and advise you on availability."""
+
+                elif user_states.get(sender) == "english_menu" and text == "4":
+                    user_states[sender] = "urinary_catheter"
+                    reply = """Urinary Catheter Insertion / Replacement
+
+To assist you, please provide:
+
+1. Patient's location / area
+2. Service required
+   - New catheter insertion
+   - Catheter replacement
+   - Catheter removal
+   - Catheter blockage / problem
+   - Not sure
+3. Patient's gender
+   - Male
+   - Female
+4. When is the service required?
+   - Today
+   - Tomorrow
+   - Other date
+
+Our nursing team will review the request and advise you on availability."""
+
+                elif user_states.get(sender) == "english_menu" and text == "5":
+                    user_states[sender] = "stoma_care"
+                    reply = """Stoma Care
+
+To assist you, please provide:
+
+1. Patient's location / area
+2. Assistance required
+   - Stoma bag changing
+   - Stoma cleaning / skin care
+   - Stoma care education
+   - Leakage / difficulty managing the stoma
+   - Not sure
+3. Is this a newly created stoma?
+4. When would you like our nurse to visit?
+
+Our nursing team will review the information and advise you accordingly."""
+
+                elif user_states.get(sender) == "english_menu" and text == "6":
+                    user_states[sender] = "home_physiotherapy"
+                    reply = """Home Physiotherapy 🏠
+
+To assist you, please provide:
+
+1. Patient's location / area
+2. Patient's age
+3. Main reason for physiotherapy
+   - Stroke rehabilitation
+   - Post-surgery rehabilitation
+   - Elderly mobility / strengthening
+   - Walking difficulty
+   - Fall recovery
+   - Other
+4. Patient's current mobility
+   - Bedridden
+   - Wheelchair
+   - Walking with assistance
+   - Walking independently
+5. Preferred date for the first session
+
+Our team will review the patient's requirements and advise you on physiotherapist availability."""
+
+                elif user_states.get(sender) == "english_menu" and text == "7":
+                    user_states[sender] = "medical_escort"
+                    reply = """Medical Escort Service – Medscort
+
+To assist you, please provide:
+
+1. Pick-up location
+2. Hospital / clinic
+3. Appointment date
+4. Appointment time
+5. Patient's mobility
+   - Walking
+   - Walking with assistance
+   - Wheelchair
+   - Bedridden
+6. Service required
+   - Escort only
+   - Escort + transportation
+   - Not sure
+
+Our Medscort team will check availability and contact you regarding the arrangement."""
+
+                elif user_states.get(sender) == "english_menu" and text == "8":
+                    user_states[sender] = "care_home"
+                    reply = """Care Home in Penang 🏡
+
+To assist you, please provide:
+
+1. Patient's age
+2. Patient's current condition
+   - Independent
+   - Needs assistance with daily activities
+   - Wheelchair
+   - Bedridden
+   - Dementia / cognitive impairment
+   - Post-hospital / rehabilitation
+3. Does the patient require nursing care?
+4. Expected length of stay
+   - Short-term
+   - 1–3 months
+   - Long-term
+   - Not sure
+5. When is admission required?
+   - Immediately
+   - Within 1 week
+   - Within 1 month
+   - Just enquiring
+
+Our care team will review the patient's needs and recommend the most suitable care arrangement."""
 
                 elif text in {"1", "english"}:
                     user_states[sender] = "english_menu"
