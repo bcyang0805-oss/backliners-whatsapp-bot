@@ -47,6 +47,85 @@ Reply with 1, 2 or 3 to continue."""
 @app.get("/")
 def health():
     return "Backliners WhatsApp Bot is running", 200
+@app.get("/privacy")
+def privacy_policy():
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Backliners Privacy Policy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body style="font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6;">
+        <h1>Backliners Privacy Policy</h1>
+
+        <p><strong>Last updated: 13 August 2026</strong></p>
+
+        <p>
+        Backliners respects the privacy of our customers and patients.
+        This Privacy Policy explains how information submitted through our
+        WhatsApp communication service may be collected, used and protected.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <p>
+        Information may include your name, telephone number, location,
+        service enquiries, patient care information, appointment information,
+        photographs voluntarily provided by you, and other information
+        necessary for us to respond to your enquiry.
+        </p>
+
+        <h2>How We Use Information</h2>
+        <p>
+        Information is used to respond to enquiries, arrange home healthcare
+        services, coordinate appointments, provide customer support and
+        communicate with customers regarding requested Backliners services.
+        </p>
+
+        <h2>Healthcare Information</h2>
+        <p>
+        Customers should only provide information reasonably necessary for
+        Backliners to understand and respond to their service request.
+        Information provided through WhatsApp does not replace an in-person
+        medical or nursing assessment.
+        </p>
+
+        <h2>Information Sharing</h2>
+        <p>
+        We do not sell personal information. Information may be shared with
+        authorised Backliners personnel or healthcare professionals where
+        necessary to provide the requested service, or where required by law.
+        </p>
+
+        <h2>Data Security</h2>
+        <p>
+        Backliners takes reasonable measures to protect personal information
+        from unauthorised access, disclosure, alteration or misuse.
+        </p>
+
+        <h2>Data Retention</h2>
+        <p>
+        Information is retained only for as long as reasonably necessary for
+        service delivery, operational, legal and record-keeping purposes.
+        </p>
+
+        <h2>Your Choices</h2>
+        <p>
+        You may contact Backliners to request correction or deletion of
+        personal information, subject to applicable legal and record-keeping
+        requirements.
+        </p>
+
+        <h2>Contact Us</h2>
+        <p>
+        For privacy-related enquiries, please contact Backliners through our
+        official communication channels.
+        </p>
+
+        <p>Backliners<br>Penang, Malaysia</p>
+    </body>
+    </html>
+    """, 200
 
 
 @app.get("/webhook")
