@@ -168,9 +168,9 @@ def receive_webhook():
                     if not sender:
                         continue
 
-                    if user_states.get(sender) == "english_menu" and text == "1":
-                       user_states[sender] = "wound_care"
-                       reply = """Wound Care 🩹
+                if user_states.get(sender) == "english_menu" and text == "1":
+                    user_states[sender] = "wound_care"
+                    reply = """Wound Care 🩹
 
 Our registered nurses provide professional wound assessment and dressing services at your home.
 
@@ -185,9 +185,8 @@ Once we receive the information, our team will review your case and advise you a
 
 For urgent or serious conditions, please seek immediate medical attention."""
 
-                   elif text in {"1", "english"}:
-                       user_states[sender] = "english_menu"
-                       reply = """Welcome to Backliners 👩‍⚕️
+                elif text in {"1", "english"}:
+                    user_states[sender] = "english_menu"
     
 How may we assist you today?
 
