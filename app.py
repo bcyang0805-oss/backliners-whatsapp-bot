@@ -100,18 +100,6 @@ Example:
 Bayan Lepas / Georgetown / Butterworth"""
 ),
 
-Our registered nurses provide professional wound assessment and dressing services at your home.
-
-To assist you, please provide:
-
-1. Patient's location / area
-2. Type of wound (if known)
-3. How long the wound has been present
-4. A clear photo of the wound
-
-Once we receive the information, our team will review your case and advise you accordingly.
-
-For urgent or serious conditions, please seek immediate medical attention."""),
     "2": ("hygiene_care", """Elderly / Patient Hygiene Care 🧼
 
 Our care team provides hygiene assistance for elderly, bedridden and dependent patients at home.
