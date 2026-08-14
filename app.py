@@ -13,6 +13,7 @@ GRAPH_API_VERSION = "v26.0"
 # Temporary in-memory conversation state.
 # This resets whenever Render restarts/redeploys.
 user_states = {}
+user_data = {}
 
 
 def send_whatsapp_message(to_number: str, message: str):
@@ -87,7 +88,17 @@ CHINESE_MENU = """欢迎联系 Backliners 👩‍⚕️
 
 
 ENGLISH_SERVICES = {
-    "1": ("wound_care", """Wound Care 🩹
+    "1": (
+    "wound_location",
+    """Wound Care 🩹
+
+To assist you, we will ask a few quick questions.
+
+First, please provide the patient's location / area.
+
+Example:
+Bayan Lepas / Georgetown / Butterworth"""
+),
 
 Our registered nurses provide professional wound assessment and dressing services at your home.
 
@@ -366,6 +377,45 @@ def build_reply(sender: str, text: str) -> str:
     if text in {"hi", "hello", "hey", "menu", "start", "restart"}:
         user_states.pop(sender, None)
         return WELCOME_MESSAGE
+        
+    if state == "wound_location":
+        user_data[sender] = {
+            "service": "Wound Care",
+            "location": text
+        }
+
+        user_states[sender] = "wound_type"
+
+        return """Thank you.
+
+What type of wound does the patient have?
+
+If you are not sure, you may briefly describe the wound."""
+
+
+    if state == "wound_type":
+        user_data[sender]["wound_type"] = text
+
+        user_states[sender] = "wound_duration"
+
+        return """Thank you.
+
+How long has the wound been present?
+
+Example:
+3 days / 2 weeks / 1 month"""
+
+
+    if state == "wound_duration":
+        user_data[sender]["wound_duration"] = text
+
+        user_states[sender] = "wound_photo"
+
+        return """Thank you.
+
+Please send a clear photo of the wound.
+
+Once we receive the photo, our Backliners team will review the information and follow up with you."""
 
     if state == "english_menu":
         if text in ENGLISH_SERVICES:
@@ -447,14 +497,34 @@ def receive_webhook():
 
                     elif message_type == "image":
                         state = user_states.get(sender)
-                        if state == "wound_care":
-                            reply = """Thank you. The wound photo has been received.
 
-Our Backliners team will review the information and follow up with you shortly."""
+                        if state == "wound_photo":
+                            user_data.setdefault(sender, {})
+                            user_data[sender]["photo_received"] = True
+                            user_states[sender] = "wound_complete"
+
+                            reply = """Thank you. The wound photo has been received. 🩹
+
+Our Backliners team now has the following information:
+
+📍 Location: {location}
+🩹 Wound: {wound_type}
+⏱️ Duration: {wound_duration}
+📷 Wound photo: Received
+
+Our team will review your case and follow up with you shortly.
+
+Type MENU if you would like to start a new enquiry.""".format(
+                                location=user_data[sender].get("location", "-"),
+                                wound_type=user_data[sender].get("wound_type", "-"),
+                                wound_duration=user_data[sender].get("wound_duration", "-"),
+                            )
+
                         elif state == "wound_care_cn":
                             reply = """谢谢，我们已经收到伤口照片。
 
 Backliners 团队会查看资料并尽快与您联系。"""
+
                         else:
                             reply = WELCOME_MESSAGE
 
