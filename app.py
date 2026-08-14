@@ -500,7 +500,9 @@ Our Backliners team now has the following information:
 ⏱️ Duration: {wound_duration}
 📷 Wound photo: Received
 
-Our team will review your case and follow up with you shortly.
+A Backliners team member will review your case and respond to you here shortly.
+
+You may continue to send any additional information or photos in this WhatsApp conversation.
 
 Type MENU if you would like to start a new enquiry.""".format(
                                 location=user_data[sender].get("location", "-"),
