@@ -205,19 +205,19 @@ Our care team will review the patient's needs and recommend the most suitable ca
 
 
 CHINESE_SERVICES = {
-    "1": ("wound_care_cn", """伤口护理 / 换药 🩹
+"1": (
+    "wound_location_cn",
+    """伤口护理 / 换药 🩹
 
-为了让我们的护士进一步了解病人的情况，请提供：
+为了让我们更了解病人的情况，我们会询问几个简单的问题。
 
-1. 病人所在地区
-2. 伤口类型（如果知道）
-3. 伤口出现多久了
-4. 请发送一张清晰的伤口照片
+首先，请问病人目前在哪一个地区？
 
-我们收到资料后，护理团队会进一步评估并与您联系。
-
-如情况紧急或严重，请尽快寻求紧急医疗协助。"""),
-    "2": ("hygiene_care_cn", """长者 / 病人卫生护理 🧼
+例如：
+Bayan Lepas / Georgetown / Butterworth"""
+),
+    
+"2": ("hygiene_care_cn", """长者 / 病人卫生护理 🧼
 
 为了让我们进一步了解病人的护理需求，请提供：
 
@@ -404,7 +404,46 @@ Example:
 Please send a clear photo of the wound.
 
 Once we receive the photo, our Backliners team will review the information and follow up with you."""
+        
+    if state == "wound_location_cn":
+        user_data[sender] = {
+            "service": "伤口护理 / 换药",
+            "location": text
+        }
 
+        user_states[sender] = "wound_type_cn"
+
+        return """谢谢。
+
+请问病人目前是什么类型的伤口？
+
+如果不确定，可以简单描述伤口的情况。"""
+
+
+    if state == "wound_type_cn":
+        user_data[sender]["wound_type"] = text
+
+        user_states[sender] = "wound_duration_cn"
+
+        return """谢谢。
+
+请问这个伤口出现多久了？
+
+例如：
+3天 / 2星期 / 1个月"""
+
+
+    if state == "wound_duration_cn":
+        user_data[sender]["wound_duration"] = text
+
+        user_states[sender] = "wound_photo_cn"
+
+        return """谢谢。
+
+请发送一张清晰的伤口照片。
+
+我们收到照片后，Backliners 团队会查看资料并尽快与您联系。"""
+        
     if state == "english_menu":
         if text in ENGLISH_SERVICES:
             new_state, reply = ENGLISH_SERVICES[text]
@@ -510,11 +549,29 @@ Type MENU if you would like to start a new enquiry.""".format(
                                 wound_duration=user_data[sender].get("wound_duration", "-"),
                             )
 
-                        elif state == "wound_care_cn":
-                            reply = """谢谢，我们已经收到伤口照片。
+                        elif state == "wound_photo_cn":
+                            user_data.setdefault(sender, {})
+                            user_data[sender]["photo_received"] = True
+                            user_states[sender] = "wound_complete_cn"
 
-Backliners 团队会查看资料并尽快与您联系。"""
+                            reply = """谢谢，我们已经收到伤口照片。🩹
 
+Backliners 已收到以下资料：
+
+📍 地区：{location}
+🩹 伤口情况：{wound_type}
+⏱️ 持续时间：{wound_duration}
+📷 伤口照片：已收到
+
+Backliners 团队会查看您的资料，并尽快在这里回复您。
+
+如有其他资料或照片，也可以继续发送。
+
+如需开始新的咨询，请输入 MENU。""".format(
+                                location=user_data[sender].get("location", "-"),
+                                wound_type=user_data[sender].get("wound_type", "-"),
+                                wound_duration=user_data[sender].get("wound_duration", "-"),
+                            )
                         else:
                             reply = WELCOME_MESSAGE
 
