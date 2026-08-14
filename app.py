@@ -465,7 +465,13 @@ Once we receive the photo, our Backliners team will review the information and f
     if text in {"2", "中文", "chinese"}:
         user_states[sender] = "chinese_menu"
         return CHINESE_MENU
+        
+    if state == "wound_complete":
+        return None
 
+    if state == "wound_complete_cn":
+        return None
+        
     if state in {
         "wound_care",
         "hygiene_care",
@@ -521,6 +527,9 @@ def receive_webhook():
                     if message_type == "text":
                         text = message.get("text", {}).get("body", "").strip()
                         reply = build_reply(sender, text)
+
+                        if reply is None:
+                             continue
 
                     elif message_type == "image":
                         state = user_states.get(sender)
